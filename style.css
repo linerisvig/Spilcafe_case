@@ -205,6 +205,56 @@ h2 {
 
 
 
+/* fixed holder menuen i bunden af skærmen. transform centrerer den vandret. */
+.bottom-nav {
+  position:fixed;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:100%;
+  max-width:430px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:var(--teal);
+  padding:13px 8px calc(13px + env(safe-area-inset-bottom));
+  z-index:10;
+}
+
+.bottom-nav button {
+  display:flex;
+  align-items:center;
+  flex-direction:column;
+  gap:7px;
+  border:0;
+  background:none;
+  color:#BED4DB;
+  font-size:9px;
+  min-height:48px;
+  padding:0;
+}
+
+.bottom-nav button[aria-current=page] {
+  color:var(--yellow);
+}
+
+.bottom-nav svg {
+  width:24px;
+  height:24px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+
+
+
+
+
+
+
+
 
 
 

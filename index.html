@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Spilcafé - Hyg jer sammen her</title>
+  <title>Brætspilscafé - Hyg jer sammen på EAA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nobile:wght@400;500;700&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@
                     Find jeres næste spil her.
                 </h1>
                 <p class="intro">
-                    En kop kaffe + Et godt spil = Fællesskab!
+                    En kop kaffe + Et godt spil = Hygge!
                 </p>
                 <!-- En form samler søgefeltet og Søg-knappen. -->
                 <form class="search" id="home-search" role="search">
@@ -88,9 +88,37 @@
             </section>
 
 
-
         </main>
-  </div>
+
+        <nav class="bottom-nav" aria-label="Hovedmenu">
+        <!-- Her ligger de fire knapper med ikoner -->
+            <!-- aria-current="page" markerer den aktuelle visning. -->
+            <button data-page="opdag" aria-current="page">
+                <img src="billeder/kompas.svg" alt="Billede af kompas som referere til opdag siden">
+                <span>
+                    Opdag
+                </span>
+            </button>
+            <button data-page="held">
+                <img src="billeder/lykkehjul.svg" alt="Billede af lykkehjul som referere til lykkehjul siden">
+                <span>
+                    Prøv lykken
+                </span>
+            </button>
+            <button data-page="alle">
+                <img src="billeder/soeg.svg" alt="Billede af forstørrelsesglas som referere til søg siden">
+                <span>
+                    Alle spil
+                </span>
+            </button>
+            <button data-page="gemte">
+                <img src="billeder/hjerte.svg" alt="Billede af hjerte som referere til gemte siden">
+                <span>
+                    Gemte
+                </span>
+            </button>
+        </nav>
+    </div>
   <script src="js/script.js"></script>
 </body>
 </html>
