@@ -76,7 +76,7 @@ const spil = [
     stemning: ["Hygge", "Koncentration", "Konkurrence"],
     humoer: ["Hygge", "Battle"],
     udstyr: ["Bræt", "Terning", "Kort", "Ostestykker"],
-    billede: "billeder/trivial-pursuit.png",
+    billede: "billeder/Trivial-Pursuit.png",
     pladsbehov: "Stor",
     alder: "Fra 15–16 år (afhænger af udgaven)",
     note: ""
@@ -133,7 +133,7 @@ const spil = [
     stemning: ["Humoristisk", "Afslappet", "Social"],
     humoer: ["Sjov", "Hygge"],
     udstyr: ["Post-its eller papirlapper"],
-    billede: "",
+    billede: "billeder/Hvem-er-jeg.png",
     pladsbehov: "Lille",
     alder: "Ingen fast aldersanbefaling",
     note: "Data beskriver legen med sedler. Hvis I vælger æsken på jeres billede, skal data tilpasses den udgave."
@@ -231,7 +231,7 @@ const spil = [
     stemning: ["Hyggeligt", "Sjovt med nye mennesker"],
     humoer: ["Sjov", "Hygge"],
     udstyr: [],
-    billede: "billeder/Flip 7.png",
+    billede: "billeder/Flip-7.png",
     pladsbehov: "Lille",
     alder: "8+ år",
     note: ""

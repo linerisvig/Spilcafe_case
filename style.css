@@ -215,3 +215,137 @@ h2 { font-size:16px; line-height:1.4; margin:0; font-weight:700; letter-spacing:
 @media(prefers-reduced-motion:reduce) {
   .mood img,.game-expand { transition:none; }
 }
+
+/* LYKKEHJUL */
+
+[hidden] {
+  display: none !important;
+}
+
+.luck-page {
+  text-align: center;
+}
+
+/* Kanten og skyggen giver hjulet dybde. */
+.luck-wheel {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1;
+  margin: 48px auto 30px;
+  border-radius: 50%;
+  background: linear-gradient(
+    140deg,
+    #e6eef0,
+    #80B4BF 50%,
+    #3A646D
+  );
+  box-shadow:
+    0 7px 0 #284951,
+    0 16px 24px #3a646d30;
+}
+
+/* Det er kun denne del, der drejer. */
+#luck-disc {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+}
+
+/* Spørgsmålstegnet i midten. */
+.luck-hub {
+  position: absolute;
+  inset: 41%;
+  display: grid;
+  place-items: center;
+  border: 4px solid white;
+  border-radius: 50%;
+  background: linear-gradient(white, #BED4DB);
+  box-shadow: 0 4px 0 #3a646d80;
+  color: #3A646D;
+  font: bold 34px Georgia, serif;
+}
+
+/* Den faste pil over hjulet. */
+.luck-pointer {
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  width: 32px;
+  height: 48px;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 3px 2px #3a646d30);
+}
+
+.luck-button {
+  min-height: 48px;
+  padding: 12px 30px;
+  border: 0;
+  border-radius: 30px;
+  background: #3A646D;
+  color: #F4EBC0;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.luck-button:disabled {
+  opacity: .65;
+  cursor: wait;
+}
+
+.luck-button:focus-visible {
+  outline: 3px solid #3A646D;
+  outline-offset: 4px;
+}
+
+.luck-note {
+  font-size: 11px;
+  margin: 12px 0 20px;
+}
+
+.luck-result {
+  min-height: 110px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #F4EBC0;
+}
+
+#luck-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#luck-info {
+  margin: 7px 0 0;
+  font-size: 11px;
+}
+
+/* Ikonet i jeres eksisterende bundmenu. */
+.bottom-nav .luck-nav {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 48px;
+  color: #F4EBC0;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.bottom-nav .luck-nav svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.bottom-nav .luck-nav[aria-current="page"] span {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

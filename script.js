@@ -331,18 +331,46 @@ document.addEventListener("DOMContentLoaded", function () {
   // 6. SKIFT MELLEM FORSIDEN OG ALLE SPIL
   // Hash-links gør også browserens Tilbage/Frem-knapper brugbare.
   function visSide(flytFokus) {
-    const side = window.location.hash === "#alle-spil" ? "alle-spil" : "opdag";
-    document.getElementById("opdag").hidden = side !== "opdag";
-    document.getElementById("alle-spil").hidden = side !== "alle-spil";
-    document.querySelectorAll(".bottom-nav a").forEach(function (link) {
-      if (link.dataset.page === side) link.setAttribute("aria-current", "page");
-      else link.removeAttribute("aria-current");
+    // Find sidens sektioner.
+    const sider = document.querySelectorAll("main > section.page");
+
+    // Læs fx "proev-lykken" fra adressens #proev-lykken.
+    let side = window.location.hash.slice(1) || "opdag";
+
+    // Hvis adressen ikke passer til en sektion, vis forsiden.
+    const findes = Array.from(sider).some(function (sektion) {
+      return sektion.id === side;
     });
+
+    if (!findes) {
+      side = "opdag";
+    }
+
+    // Vis den valgte sektion og skjul de andre.
+    sider.forEach(function (sektion) {
+      sektion.hidden = sektion.id !== side;
+    });
+
+    // Markér den aktuelle side i bundmenuen.
+    document.querySelectorAll(".bottom-nav [data-page]")
+      .forEach(function (link) {
+        if (link.dataset.page === side) {
+          link.setAttribute("aria-current", "page");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+
+    // Start øverst på den nye side.
     if (flytFokus) {
-      window.scrollTo({ top: 0, behavior: "instant" });
+      window.scrollTo(0, 0);
+
       const overskrift = document.querySelector("#" + side + " h1");
-      overskrift.setAttribute("tabindex", "-1");
-      overskrift.focus({ preventScroll: true });
+
+      if (overskrift) {
+        overskrift.setAttribute("tabindex", "-1");
+        overskrift.focus({ preventScroll: true });
+      }
     }
   }
   window.addEventListener("hashchange", function () { visSide(true); });
