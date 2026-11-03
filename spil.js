@@ -1,8 +1,8 @@
-// SPILDATA – de 12 spil fra jeres attributkortlægning.
+// SPILDATA – de 12 spil fra vores attributkortlægning.
 // Hvert objekt bruger de samme attributter.
 // Tal gemmes som tal. Flere værdier gemmes i små arrays.
-// Billede er tomt, indtil I indsætter jeres egne billedstier.
-// Humør-tags er forslag til koblingen med jeres fire forsideknapper.
+// Billede er tomt, indtil vi indsætter billedstier.
+// Humør-tags er forslag til koblingen med de fire forsideknapper.
 
 const spil = [
   {
