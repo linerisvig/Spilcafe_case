@@ -19,7 +19,7 @@ const spil = [
     stemning: ["Hyggeligt", "Intens overlevelseskamp"],
     humoer: ["Sjov", "Hygge", "Battle"],
     udstyr: ["Kort"],
-    billede: "",
+    billede: "billeder/uno.png",
     pladsbehov: "Lille",
     alder: "7+ år",
     note: ""
@@ -38,7 +38,7 @@ const spil = [
     stemning: ["Intens fordybelse", "Hygge", "Mental duel"],
     humoer: ["Hygge", "Battle"],
     udstyr: [],
-    billede: "",
+    billede: "billeder/skak.png",
     pladsbehov: "Mellem",
     alder: "Fra ca. 5–7 år (afhænger af udgaven)",
     note: "Spilletiden afhænger blandt andet af den aftalte tidskontrol."
@@ -57,7 +57,7 @@ const spil = [
     stemning: [],
     humoer: [],
     udstyr: ["Terning"],
-    billede: "",
+    billede: "billeder/ludo.png",
     pladsbehov: "Mellem",
     alder: "Fra ca. 5–6 år (afhænger af udgaven)",
     note: ""
@@ -76,7 +76,7 @@ const spil = [
     stemning: ["Hygge", "Koncentration", "Konkurrence"],
     humoer: ["Hygge", "Battle"],
     udstyr: ["Bræt", "Terning", "Kort", "Ostestykker"],
-    billede: "",
+    billede: "billeder/trivial-pursuit.png",
     pladsbehov: "Stor",
     alder: "Fra 15–16 år (afhænger af udgaven)",
     note: ""
@@ -95,7 +95,7 @@ const spil = [
     stemning: ["Sjov", "Fjollet", "Hygge"],
     humoer: ["Sjov", "Hygge"],
     udstyr: ["Kort", "Svarkort"],
-    billede: "",
+    billede: "billeder/Det-Daarlige-Selskab.png",
     pladsbehov: "Lille",
     alder: "16+ år",
     note: ""
@@ -114,7 +114,7 @@ const spil = [
     stemning: ["Hyggelig", "Festlig"],
     humoer: ["Sjov", "Hygge"],
     udstyr: ["Telefon", "Kort"],
-    billede: "",
+    billede: "billeder/Hitster.png",
     pladsbehov: "Lille",
     alder: "Fra 15–16 år (afhænger af udgaven)",
     note: ""
@@ -154,7 +154,7 @@ const spil = [
     stemning: ["Konkurrencepræget", "Intens", "Social"],
     humoer: ["Battle"],
     udstyr: ["Brikker", "Terning", "Spillepenge", "Ejendomskort", "Chancekort", "Fællesskabskort", "Huse", "Hoteller"],
-    billede: "",
+    billede: "billeder/monopoly.png",
     pladsbehov: "Mellem",
     alder: "8+ år",
     note: "Tjek jeres udgave. Filteret bruger 2–6 spillere, indtil det er afklaret, om jeres æske tillader 8."
@@ -173,7 +173,7 @@ const spil = [
     stemning: ["Spændingsfuld", "Koncentreret", "Konkurrencepræget"],
     humoer: ["Battle"],
     udstyr: ["Personbrikker", "Våbenbrikker", "Kort", "Løsningskuvert", "Detektivark", "Terning(er)", "Blyanter"],
-    billede: "",
+    billede: "billeder/cluedo.png",
     pladsbehov: "Stor",
     alder: "8+ år",
     note: ""
@@ -192,7 +192,7 @@ const spil = [
     stemning: ["Konkurrencepræget", "Social", "Hyggeligt"],
     humoer: ["Sjov", "Hygge", "Battle"],
     udstyr: ["Kort"],
-    billede: "",
+    billede: "billeder/Hint.png",
     pladsbehov: "Stor",
     alder: "15+ år",
     note: ""
@@ -212,7 +212,7 @@ const spil = [
     stemning: ["Konkurrence", "Venskabelig", "Social"],
     humoer: ["Hygge", "Battle"],
     udstyr: ["Bord"],
-    billede: "",
+    billede: "billeder/Partners.png",
     pladsbehov: "Lille",
     alder: "8+ år",
     note: "Kortlægningen angiver 2 eller 4 spillere. Bekræft, at det passer til jeres konkrete udgave."
@@ -231,7 +231,7 @@ const spil = [
     stemning: ["Hyggeligt", "Sjovt med nye mennesker"],
     humoer: ["Sjov", "Hygge"],
     udstyr: [],
-    billede: "",
+    billede: "billeder/Flip 7.png",
     pladsbehov: "Lille",
     alder: "8+ år",
     note: ""
