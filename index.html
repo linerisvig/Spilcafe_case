@@ -3,122 +3,185 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Brætspilscafé - Hyg jer sammen på EAA</title>
+  <meta name="description" content="Find et spil til jeres næste pause på Erhvervsakademi Aarhus.">
+  <title>Spilcafé – find jeres næste spil</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nobile:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <!-- link til stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- sidens indhold kommer her-->
+  <div class="forside">
+    <header class="brand">
+      <div class="logo-wrap">
+        <!-- Behold jeres eget logo i mappen billeder. -->
+        <img class="brand-logo" src="billeder/logo.png" alt="EAA Brætspilscafé – terninger og kaffe" data-fallback>
+        <span class="logo-fallback" hidden aria-hidden="true">EAA</span>
+      </div>
+      <div>
+        <p class="brand-name">Brætspilscafé</p>
+        <p class="brand-school">ERHVERVSAKADEMI AARHUS</p>
+      </div>
+    </header>
 
-    <div class="forside"> 
-        <!-- Vores header er den faste indledning med logo og navn -->
-        <header class="brand">
-            <div class="logo-wrap">
-                <img class="brand-logo" src="billeder/logo.png" alt="EAA Brætspilscafé - terninger og kaffe">
+    <main>
+      <!-- 1. JERES FORSIDE -->
+      <section id="opdag" class="page" aria-labelledby="home-title">
+        <p class="overtekst">EN PAUSE MED PLADS TIL FÆLLESSKAB</p>
+        <h1 id="home-title">Tid til en pause?<br>Find jeres næste spil her.</h1>
+        <p class="intro">En kop kaffe + Et godt spil = Fællesskab!</p>
+
+        <form class="search" id="home-search" role="search">
+          <label class="sr-only" for="search-field">Søg efter spil fra forsiden</label>
+          <input id="search-field" type="search" placeholder="Søg efter dit yndlingsspil…" autocomplete="off">
+          <button type="submit">Søg</button>
+        </form>
+
+        <div class="section-heading">
+          <h2>Hvad er I i humør til?</h2>
+        </div>
+        <div class="moods">
+          <button class="mood" type="button" data-mood="Sjov">
+            <img src="billeder/sjov.png" alt="Emoji der griner" data-fallback>
+            <span class="mood-fallback" hidden aria-hidden="true">😄</span>
+            <span>Sjov</span>
+          </button>
+          <button class="mood" type="button" data-mood="Hygge">
+            <img src="billeder/hygge.png" alt="Rolig emoji pakket ind i et tæppe" data-fallback>
+            <span class="mood-fallback" hidden aria-hidden="true">😌</span>
+            <span>Hygge</span>
+          </button>
+          <button class="mood" type="button" data-mood="Svær">
+            <img src="billeder/svaer.png" alt="Tænkende emoji med tankeboble" data-fallback>
+            <span class="mood-fallback" hidden aria-hidden="true">🤔</span>
+            <span>Svær</span>
+          </button>
+          <button class="mood" type="button" data-mood="Battle">
+            <img src="billeder/battle.png" alt="Emoji med boksehandsker" data-fallback>
+            <span class="mood-fallback" hidden aria-hidden="true">🥊</span>
+            <span>Battle</span>
+          </button>
+        </div>
+        <a class="browse-link" href="#alle-spil">Se alle spil <span aria-hidden="true">→</span></a>
+      </section>
+
+      <!-- 2. NY SEKTION: SØGNING, FILTRE OG SPILLISTE -->
+      <section id="alle-spil" class="page games-page" aria-labelledby="games-title" hidden>
+        <h1 id="games-title" tabindex="-1">Find jeres spil.</h1>
+        <p class="intro" id="collection-info"></p>
+
+        <form class="search" id="game-search" role="search">
+          <label class="sr-only" for="game-search-field">Søg i spilsamlingen</label>
+          <input id="game-search-field" type="search" placeholder="Søg efter spil…" autocomplete="off">
+          <button type="submit">Søg</button>
+        </form>
+
+        <div class="quick-filters" role="group" aria-label="Hurtige filtre">
+          <button class="filter-chip" id="reset-all" type="button">Alle</button>
+          <button class="filter-chip" id="quick-time" type="button" aria-pressed="false">Højst 30 min.</button>
+          <button class="filter-chip" id="quick-easy" type="button" aria-pressed="false">Let at lære</button>
+        </div>
+
+        <div class="filter-grid">
+          <div class="filter-field">
+            <label for="player-filter">Antal spillere</label>
+            <select id="player-filter">
+              <option value="0">Alle gruppestørrelser</option>
+              <!-- JavaScript indsætter valgmulighederne 2–18. -->
+            </select>
+          </div>
+
+          <div class="filter-field">
+            <label for="time-filter">Spilletid</label>
+            <div class="range-control">
+              <output id="time-output" for="time-filter">Alle spilletider</output>
+              <input id="time-filter" type="range" min="15" max="180" step="5" value="180" aria-describedby="time-help">
             </div>
-            <div>
-                <p class="brand-name">
-                    Brætspilscafé
-                </p>
-                <p class="brand-school">
-                    ERHVERVSAKADEMI AARHUS
-                </p>
-            </div>
-        </header>
+          </div>
 
-        <!-- Nu kommer vores main, som indeholder sidens vigtigste indhold og de fire sektioner i bunden -->
-        <main>
-            <section id="opdag" class="page">
-                <p class="overtekst">
-                    EN PAUSE MED PLADS TIL FÆLLESSKAB
-                </p>
-                <h1>
-                    Tid til en pause?
-                    <br>
-                    Find jeres næste spil her.
-                </h1>
-                <p class="intro">
-                    En kop kaffe + Et godt spil = Hygge!
-                </p>
-                <!-- En form samler søgefeltet og Søg-knappen. -->
-                <form class="search" id="home-search" role="search">
-                    <input id="search-field" type="search" placeholder="Søg efter dit yndlingsspil…">
-                    <button>
-                        Søg
-                    </button>
-                </form>
-                <div class="section-heading">
-                    <h2>
-                        Hvad er I i humør til?
-                    </h2>
-                </div>
-                <!-- Nu kommer de fire emoji-knapper man kan trykke på for at vælge et tema. -->
-                <div class="moods">
-                    <!-- src er stien til billedfilen. alt beskriver billedet, hvis det ikke kan ses. -->
-                    <button class="mood" data-mood="Sjov">
-                        <img src="billeder/sjov.png" alt="Emoji der griner">
-                        <span>
-                            Sjov
-                        </span>
-                    </button>
-                    <button class="mood" data-mood="Hygge">
-                        <img src="billeder/hygge.png" alt="Rolig emoji pakket ind i et tæppe og hygger sig">
-                        <span>
-                            Hygge
-                        </span>
-                    </button>
-                    <button class="mood" data-mood="Svær">
-                        <img src="billeder/svaer.png" alt="Tænkende emoji med tankeboble">
-                        <span>
-                            Svær
-                        </span>
-                    </button>
-                    <button class="mood" data-mood="Battle">
-                        <img src="billeder/battle.png" alt="Emoji med boksehandsker klar til battle">
-                        <span>
-                            Battle
-                        </span>
-                    </button>
-                </div>
-            </section>
+          <!-- Flere afkrydsninger = spil fra mindst én valgt kategori. -->
+          <div class="filter-field">
+            <span class="filter-label" id="category-label">Spiltype</span>
+            <details class="category-picker" id="category-picker">
+              <summary aria-labelledby="category-label category-summary">
+                <span id="category-summary">Alle spiltyper</span>
+                <span class="chevron" aria-hidden="true"></span>
+              </summary>
+              <fieldset class="category-options" id="category-options">
+                <legend class="sr-only">Vælg en eller flere spiltyper</legend>
+                <!-- Kategorierne kommer fra arrayet i spil.js. -->
+              </fieldset>
+            </details>
+          </div>
 
+          <div class="filter-field">
+            <label for="level-filter">Regelniveau</label>
+            <select id="level-filter">
+              <option value="">Alle niveauer</option>
+              <option value="Let">Let</option>
+              <option value="Middel">Middel</option>
+              <option value="Svær">Svær</option>
+            </select>
+          </div>
 
-        </main>
+          <div class="filter-field">
+            <label for="space-filter">Pladsbehov</label>
+            <select id="space-filter">
+              <option value="">Alle bordstørrelser</option>
+              <option value="Lille">Lille</option>
+              <option value="Mellem">Mellem</option>
+              <option value="Stor">Stor</option>
+            </select>
+          </div>
 
-        <nav class="bottom-nav" aria-label="Hovedmenu">
-        <!-- Her ligger de fire knapper med ikoner -->
-            <!-- aria-current="page" markerer den aktuelle visning. -->
-            <button data-page="opdag" aria-current="page">
-                <img src="billeder/kompas.svg" alt="Billede af kompas som referere til opdag siden">
-                <span>
-                    Opdag
-                </span>
-            </button>
-            <button data-page="held">
-                <img src="billeder/lykkehjul.svg" alt="Billede af lykkehjul som referere til lykkehjul siden">
-                <span>
-                    Prøv lykken
-                </span>
-            </button>
-            <button data-page="alle">
-                <img src="billeder/soeg.svg" alt="Billede af forstørrelsesglas som referere til søg siden">
-                <span>
-                    Alle spil
-                </span>
-            </button>
-            <button data-page="gemte">
-                <img src="billeder/hjerte.svg" alt="Billede af hjerte som referere til gemte siden">
-                <span>
-                    Gemte
-                </span>
-            </button>
-        </nav>
-    </div>
-  <script src="js/script.js"></script>
+          <div class="filter-field">
+            <label for="sort-order">Sortér efter</label>
+            <select id="sort-order">
+              <option value="titel-az">Titel A–Å</option>
+              <option value="titel-za">Titel Å–A</option>
+              <option value="tid-kort">Korteste spilletid</option>
+              <option value="tid-lang">Længste spilletid</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="filter-help" id="time-help">Tid er cirka. Filteret bruger den øvre ende af spillets tidsinterval.</p>
+        <div class="active-filters" id="active-filters" aria-label="Aktive filtre"></div>
+
+        <div class="results-heading">
+          <h2 id="results-count" role="status" aria-live="polite" aria-atomic="true"></h2>
+          <button class="text-button" type="button" id="clear-filters">Nulstil</button>
+        </div>
+        <p class="data-note">Spildata er fra vores kortlægning og kan afhænge af udgaven.</p>
+
+        <!-- forEach indsætter kortene her. Listen bliver ikke skrevet i HTML. -->
+        <ul class="game-list" id="game-list" aria-label="Spil der matcher"></ul>
+
+        <div class="empty-state" id="empty-state" hidden>
+          <span class="empty-symbol" aria-hidden="true">?</span>
+          <h3>Ingen spil matcher lige nu</h3>
+          <p>Prøv et andet søgeord eller fjern et filter.</p>
+          <button class="primary" id="empty-reset" type="button">Vis alle spil</button>
+        </div>
+      </section>
+      <noscript><p class="page">Aktivér JavaScript for at søge og filtrere spillene.</p></noscript>
+    </main>
+
+    <!-- Kun de to sider, som denne kode indeholder. -->
+    <nav class="bottom-nav" aria-label="Hovedmenu">
+      <a href="#opdag" data-page="opdag" aria-current="page">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11"></circle><path d="m20 10-2 8-6 4 2-8z"></path></svg>
+        <span>Opdag</span>
+      </a>
+      <a href="#alle-spil" data-page="alle-spil">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="13" cy="13" r="8"></circle><path d="m19 19 8 8"></path></svg>
+        <span>Alle spil</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Rækkefølgen er vigtig: data skal indlæses før funktionerne. -->
+  <script src="spil.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
