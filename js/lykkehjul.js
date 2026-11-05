@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Find de HTML-elementer, vi skal bruge.
   const hjul = document.getElementById("luck-disc");
   const knap = document.getElementById("luck-spin");
+  const bookKnap = document.getElementById("luck-book");
   const titel = document.getElementById("luck-title");
   const info = document.getElementById("luck-info");
   const antal = document.getElementById("luck-count");
@@ -124,6 +125,8 @@ document.addEventListener("DOMContentLoaded", function () {
   knap.addEventListener("click", function () {
     // Stop, hvis hjulet allerede drejer.
     if (drejer) return;
+    bookKnap.hidden = true;
+delete bookKnap.dataset.bookGame;
 
     drejer = true;
     knap.disabled = true;
@@ -178,6 +181,8 @@ document.addEventListener("DOMContentLoaded", function () {
         " · " + valgtSpil.alder;
 
       // Nu kan brugeren dreje igen.
+      bookKnap.dataset.bookGame = valgtSpil.id;
+      bookKnap.hidden = false;
       drejer = false;
       knap.disabled = false;
       knap.textContent = "Drej igen";

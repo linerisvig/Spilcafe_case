@@ -202,9 +202,9 @@
   <p id="luck-count" class="luck-note"></p>
 
   <!-- Her viser JavaScript resultatet. -->
+  <div class="luck-result">
   <div
     id="luck-result"
-    class="luck-result"
     role="status"
     aria-live="polite"
     aria-atomic="true"
@@ -212,6 +212,17 @@
     <p id="luck-title">Hvilket spil mon det bliver?</p>
     <p id="luck-info"></p>
   </div>
+
+  <button
+    id="luck-book"
+    class="booking-button"
+    type="button"
+    hidden
+  >
+    Book spillet
+  </button>
+</div>
+
 </section>
 
     </main>
@@ -233,11 +244,80 @@
     </nav>
   </div>
 
+<dialog
+  id="booking-dialog"
+  class="booking-dialog"
+  aria-labelledby="booking-heading"
+  aria-describedby="booking-demo"
+>
+  <div class="booking-header">
+    <h2 id="booking-heading">Book jeres spil</h2>
+
+    <button
+      id="booking-close"
+      class="booking-close"
+      type="button"
+      aria-label="Luk booking"
+    >
+      ×
+    </button>
+  </div>
+
+  <p id="booking-demo" class="booking-note">
+    Demo: Bookingen gemmes kun i denne browser og reserverer
+    ikke et fysisk spil.
+  </p>
+
+  <div class="booking-game">
+    <h3 id="booking-game-name"></h3>
+    <p id="booking-duration"></p>
+  </div>
+
+  <form id="booking-form">
+    <label for="booking-date">Vælg dato</label>
+    <input id="booking-date" type="date" required>
+
+    <label for="booking-time">Vælg tidspunkt</label>
+    <select id="booking-time" required></select>
+
+    <p id="booking-hours" class="booking-note"></p>
+
+    <p
+      id="booking-error"
+      class="booking-error"
+      role="alert"
+    ></p>
+
+    <button
+      id="booking-save"
+      class="booking-button"
+      type="submit"
+    >
+      Gem demobooking
+    </button>
+  </form>
+
+  <div
+    id="booking-success"
+    class="booking-success"
+    role="status"
+    hidden
+  >
+    <h3>Demobooking gemt</h3>
+    <p id="booking-confirmation"></p>
+
+    <p class="booking-note">
+      Du kan lukke vinduet og finde flere spil.
+    </p>
+  </div>
+</dialog>
+
   <!-- Rækkefølgen er vigtig: data skal indlæses før funktionerne. -->
-  <script src="spil.js"></script>
-  <script src="script.js"></script>
-  <script src="js/lykkehjul.js"></script>
+<script src="spil.js"></script>
+<script src="script.js"></script>
+<script src="js/lykkehjul.js"></script>
+<script src="js/js/booking.js"></script>
+
 </body>
 </html>
 
-hej 

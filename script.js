@@ -194,6 +194,16 @@ document.addEventListener("DOMContentLoaded", function () {
       if (etSpil.note) indhold.appendChild(tekstElement("p", "game-note", etSpil.note));
       detaljer.appendChild(indhold);
       li.appendChild(detaljer);
+      const bookKnap = document.createElement("button");
+
+bookKnap.type = "button";
+bookKnap.className = "booking-button";
+bookKnap.textContent = "Book spillet";
+
+bookKnap.dataset.bookGame = etSpil.id;
+bookKnap.setAttribute("aria-label", "Book " + etSpil.navn);
+
+li.appendChild(bookKnap);
       liste.appendChild(li);
     });
   }
