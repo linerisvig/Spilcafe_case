@@ -58,14 +58,3 @@ Billedet vises automatisk i stedet for monogrammet. Filnavnets store/små bogsta
 Filtreringslogikken er kontrolleret med 18 automatiske kontroller: alle 12 spil, søgning og mellemrum, kategorier, særlige spillerantal, tidsgrænser, kombinerede filtre, regelniveauer, plads/humør, numerisk sortering, tomme resultater og bevarelse af originaldata.
 
 I browseren er søgning fra begge sider, kombinerede filtre, kategori-menuen, slider med tastatur, nulstilling, sortering, humørknapper og detaljer afprøvet.
-
-Prøv selv:
-
-1. Søg efter `  uNo  ` → UNO.
-2. Vælg derefter 18 spillere → ingen resultater.
-3. Tryk **Vis alle spil** → 12 spil.
-4. Vælg Kortspil og Strategispil → 5 spil.
-5. Vælg også 9 spillere og Højst 30 min. → UNO.
-6. Nulstil og vælg 3 spillere → Partners er ikke med.
-7. Sortér efter længste spilletid → Monopoly øverst.
-8. Åbn et spil med plusset → se også alder, udstyr, pladsbehov og stemning.
