@@ -1,60 +1,75 @@
-## Sådan opfylder koden opgaven
+# Brætspilscafé 
 
-| Krav | Hvor og hvordan |
-| --- | --- |
-| Array af objekter | `const spil = [...]` i `spil.js`. Alle objekter har de samme felter. |
-| Vis spil med `forEach` | Funktionen `visSpil()` i `script.js` bygger listen med `resultater.forEach(...)`. |
-| Tekstfelt og Søg-knap | Begge søgefelter ligger i en `<form>`. Enter virker også. |
-| `toLowerCase`, `trim`, `includes` | `filtrerOgSorter()` gør søgeteksten ensartet og finder tekstmatch. |
-| Filtrering med `filter` | `alleSpil.filter(...)` undersøger hvert spil. |
-| Checkbokse | Spiltype-menuen tillader én eller flere valgte kategorier. |
-| Range-input | Spilletid er en skyder fra 15 til 180 minutter. |
-| Sortering med `sort` | Select-boksen vælger titel A–Å, titel Å–A, korteste eller længste spilletid. |
-| Mængdeoperation | Flere kategorier kombineres med ELLER; forskellige filtre kombineres med OG. |
+En side med vores 12 spil, bygget med HTML, CSS og JavaScript. Udseendet følger [Prototype i Figma](https://www.figma.com/design/m8k4Oqegmx5s0POZymU8CT/Spilcaf%C3%A9-case--IXD----Maiken--Sara--Klaudia---Line?node-id=281-2). Logo, humørfigurer, spilbilleder, ikoner og hjul er hentet fra filen.
 
-Et eksempel: Vælger brugeren **Kortspil** og **Strategispil**, vises spil, der er i mindst én af de kategorier. Vælger brugeren samtidig **9 spillere** og **højst 30 minutter**, skal spillene også opfylde begge betingelser. Med de aktuelle data er resultatet **UNO**.
 
-`some()` betyder her: opfylder mindst én af spillets kategorier betingelsen? `includes()` undersøger, om kategorien er blandt brugerens valgte kategorier.
+## Filerne
 
-## Filtervalg
+ Fil - Indhold 
+ 
+ `index.html`  Sidernes tekst, felter, knapper og bundmenu 
+ `css/style.css`  Farver, størrelser og placeringer fra Figma 
+ `js/spil.js`  Arrayet med de 12 spil og deres attributter 
+ `js/script.js`  Søgning, filtre, sortering, spilvisning og skift mellem sider 
+ `js/sprog.js`  Danske og engelske tekster 
+ `js/konto.js`  Gæst, øvelseslogin og gemte spil 
+ `js/lykkehjul.js`  Tilfældigt spil og hjulets rotation 
+ `js/booking.js`  Valg af tid, lokale bookinger, ændring og aflysning 
+ `billeder/`  Billeder og ikoner, som siden bruger 
+ `.gitignore`  Holder `.vscode`, `.DS_Store` og midlertidige build-filer ude af Git 
 
-- **Søgning:** navn, forkortelse, kategori, spilbeskrivelse og stemning. Søgeordet aktiveres ved Søg/Enter, og alle efterfølgende filtre arbejder videre på den søgning.
-- **Antal spillere:** et præcist antal fra 1 til 18 eller alle gruppestørrelser. Partners indeholder `[2, 4]`, så 3 ikke matcher.
-- **Spilletid:** bruger den øvre grænse i tidsintervallet. Et spil på 15–30 minutter matcher højst 30; et spil på 30–60 matcher ikke. Spilletiderne er stadig skøn, ikke en garanti.
-- **Regelniveau:** `Let–Middel` matcher både Let og Middel. `Middel–Svær` matcher både Middel og Svær, som kortlægningen angiver.
-- **Pladsbehov:** præcis match på Lille, Mellem eller Stor.
-- **Sortering:** ændrer rækkefølgen af de aktuelle søgeresultater. Den oprindelige dataliste ændres ikke.
-- **Aktive filtre:** vises som små knapper, der kan fjernes enkeltvis. **Alle**, **Nulstil** og **Vis alle spil** fjerner både søgning og filtre og gendanner sortering efter titel.
 
-## Sammenhæng med Figma og kortlægningen
+## Funktionerne i script.js
 
-- Den nye side bruger de samme farver, to kolonner med filtre og kompakte spilrækker som Figma-eksemplet. Et plus åbner et spils detaljer. Hjerter/favoritter, engelsk oversættelse og spinnehjul er ikke en del af denne filtreringsleverance.
-- Figma-billedet indeholder 13 spil, herunder Matador. Kortlægningen indeholder 12 og har ikke Matador. Denne version bruger de 12 kortlagte spil, og antallet beregnes automatisk.
-- Sprog og læsemængde er ikke angivet i kortlægningen. Derfor er der ikke et sprogfilter eller et filter for ingen læsning. **Let at lære** er koblet til regelniveauet Let. Tilføj først sprogfiltre, når I har data om de konkrete udgaver.
-- Kategorienavne er ensrettet: eksempelvis `Strategi`/`Strategi spil` bliver `Strategispil`. Hitsters `Gættespil med musik` er opdelt i `Gættespil` og `Musik`. Brug de samme betegnelser i Figma.
-- Tabellen bruger overskriften `Spilform` til en beskrivelse af, hvad man gør i spillet. Feltet hedder stadig `spilform` i data, men vises som beskrivelsestekst.
-- De nye `humoer`-tags er forslag til koblingen til Sjov, Hygge og Battle på forsiden. Tilpas dem efter jeres vurdering og brugertest. Svær-knappen bruger regelniveauet Svær. Ludos stemning er tom i tabellen og er derfor ikke gættet.
+`filtrerProdukter()` Den kalder de mindre funktioner i rækkefølge:
 
-## Data, som gruppen bør afklare
+ Funktion - Hvad der sker 
 
-1. **Monopoly:** tabellen siger 2–6 eller 2–8 spillere. Filteret bruger foreløbigt 2–6, det fælles interval. Hvis jeres konkrete udgave tillader 8, ændres `antalSpillere` til `[2, 3, 4, 5, 6, 7, 8]` og spillerteksten og noten opdateres.
-2. **Partners:** 2 eller 4 er overført fra jeres tabel; kontrollér at det passer til den konkrete udgave.
-3. **Hvem er jeg?:** teksten beskriver den hjemmelavede leg med sedler, mens tabellens billede viser en købt æske. Denne version følger teksten. Vælg én udgave, og tilpas alle dens data samlet.
-4. **Udstyr og stemning:** tomme felter er tomme arrays og vises som “Ikke angivet”. De øvrige udstyrslister er fra jeres tabel og er ikke nødvendigvis komplette lister over æskernes indhold.
-5. **Alder:** tabellens intervaller er bevaret som tekst, fx “Fra ca. 5–7 år”. Alder vises i detaljerne og bruges ikke som filter, da flere værdier endnu er tvetydige. Brug æskens konkrete aldersanbefaling, hvis I senere vil filtrere med `minAlder` som et tal.
+ `hentFelter()`  Læser søgeordet og filtervalgene fra HTML 
+ `filtrerSpil(alleSpil, valg)`  Laver en kopi og beholder de spil, der passer 
+ `sorterSpil(filteredProducts, sorterEfter)`  Sætter resultatet i den valgte rækkefølge 
+ `displayProducts(list)`  Tilføjer én spilrække ad gangen med `forEach` 
+ `visFilterstatus(list, valg)`  Opdaterer antal resultater og teksten ved filtrene 
 
-## Tilføj produktbilleder
+Kategorierne findes både i en dropdown og som checkbokse i **Vælg filtre**. Checkboksene tillader flere kategorier på samme tid. Filtrene opdaterer resultatet, når de ændres. **Vis spil** lukker panelet.
 
-Spillene har monogrammer som i Figma-eksemplet. Sæt en rigtig billedsti på det relevante objekt, når filen findes:
+**Alle spilletider** betyder, at tidsfilteret er slået fra. Der er ingen skjult grænse på 180 minutter. Når tidsfilteret er slået til, bruges spillets længste angivne tid. Et spil på 15–30 minutter passer derfor til højst 30 minutter, men ikke til højst 25. Skyderens maksimum hentes fra data.
 
-```js
-billede: "billeder/uno.png"
-```
+## Opgavens krav
 
-Billedet vises automatisk i stedet for monogrammet. Filnavnets store/små bogstaver skal passe, også når I udgiver på GitHub Pages.
 
-## Afprøvning
+ Array af objekter  `const spil` i `spil.js` 
+Alle spil med `forEach` , `displayProducts()`
+Tekstfelt og Søg-knap , Formularerne på forsiden og søgesiden; Enter virker også
+`toLowerCase`, `trim`, `includes` , `hentFelter()` og søgedelen i `filtrerSpil()` 
+ Kategori og range-input med `filter` .  Checkboksene og tidsskyderen i filterpanelet 
+|Select og `sort` | **Sortér efter**: titel eller spilletid, begge retninger 
+Mængdeoperation , `some` og `includes`: Kortspil ELLER Strategispil; derefter spillerantal OG tid OG de øvrige aktive filtre 
+ Søgning kan filtreres = Filterændringer arbejder videre med søgeordet i feltet 
+Ingen database eller redigering af spil - Spildata ligger kun i `spil.js`; siden har ingen funktion til at ændre spil 
 
-Filtreringslogikken er kontrolleret med 18 automatiske kontroller: alle 12 spil, søgning og mellemrum, kategorier, særlige spillerantal, tidsgrænser, kombinerede filtre, regelniveauer, plads/humør, numerisk sortering, tomme resultater og bevarelse af originaldata.
+Spillets detaljer åbnes som en side. `<dialog>` bruges til filtre og bekræftelse af aflysning; en detaljedialog er valgfri i opgaven.
 
-I browseren er søgning fra begge sider, kombinerede filtre, kategori-menuen, slider med tastatur, nulstilling, sortering, humørknapper og detaljer afprøvet.
+## Gæst, hjerter og booking
+
+Dette er en lokal simulation. Der er ingen server eller rigtig brugerkonto. Et opdigtet login med en gyldig e-mailform og mindst fire tegn i adgangskodefeltet kan bruges til at afprøve forløbet. **Adgangskoden gemmes ikke**.
+
+Gæstebruger eller navn/e-mail, gemte spil og bookinger gemmes i browserens `localStorage`. De bliver der efter genindlæsning. De deles af alle øvelsesprofiler i samme browser, bliver ikke slettet ved logout og følger ikke med til en anden browser eller enhed. Sletning af browserens sidedata fjerner dem.
+
+**Book** findes i søgeresultater, gemte spil, spildetaljer og efter et hjulspin. Tiderne 09–17 er eksempeltider, ikke caféens bekræftede åbningstider. Bookingen reserverer spillets maksimale varighed, rundet op til en halv time. Fortid og overlappende reservationer af samme spil i denne browser udelukkes. Under **Mine bookinger** kan tidspunktet ændres eller reservationen aflyses. Ingen reservation sendes til caféen.
+
+Hjulets 12 felter følger rækkefølgen i `spil.js`. Søgning sorterer en kopi, så den rækkefølge bevares. Ved ændringer i antallet eller rækkefølgen af spillene skal selve hjulbilledet også opdateres.
+
+## Spildata fra kortlægningen
+
+Alder, stemning, udstyr, spillere, tid, regler, kategori og pladsbehov vises på detaljesiden. Tomme oplysninger vises som Ikke angivet**. Kortlægningen mangler udstyr til Skak og Flip 7 samt stemning til Ludo; der er ikke indsat gæt i de felter.
+
+Nogle felter afhænger af udgaven: Monopoly filtreres som 2–6 spillere, selv om kortlægningen nævner udgaver til 8. Partners følger kortlægningens 2 eller 4, ikke intervallet 2–4. Data for Hvem er jeg? beskriver legen med sedler; billedet viser en købt æske. Alder og udstyr bør kontrolleres på de konkrete æsker, når kortlægningen færdiggøres.
+
+Humørsiderne følger Figma med tre spil i hver gruppe. Humøret **Svær** er en udvalgt gruppe, mens **Regelniveau** er en separat attribut. Stjernerne på kortene er beholdt som i Figma og bruges ikke som filter eller anmeldelsesdata.
+
+## Kontrol af løsningen
+
+Siden er afprøvet i browseren ved 320, 375 og 440 px bredde: søgning med store bogstaver og mellemrum, flere kategorier, spillerantal, tidsskyder, tomme resultater, sortering, engelske tekster, gæst, gemte spil efter genindlæsning, booking, ændring, optagede tider, aflysning og lykkehjul. Alle 12 spilbilleder blev indlæst.
+
+Derudover er JavaScript-filerne syntakskontrolleret. Isolerede funktionstjek dækkede blandt andet en spilletid over 180 minutter, at originalarrayet ikke ændres, Partners ved 2/3/4 spillere, tidsmæssige overlap og alle 12 hjulfelter ved gentagne drej.

@@ -1,9 +1,5 @@
-// SPILDATA – de 12 spil fra vores attributkortlægning.
-// Hvert objekt bruger de samme attributter.
-// Tal gemmes som tal. Flere værdier gemmes i små arrays.
-// Billede er tomt, indtil vi indsætter billedstier.
-// Humør-tags er forslag til koblingen med de fire forsideknapper.
-
+// Et objekt indeholder oplysninger om ét spil. Arrays bruges ved flere værdier.
+// Spildata stammer fra vores kortlægning og kan afhænge af udgaven.
 const spil = [
   {
     id: "uno",
@@ -17,12 +13,12 @@ const spil = [
     regelniveauer: ["Let"],
     spilform: "Vær den første spiller, der slipper af med alle sine kort.",
     stemning: ["Hyggeligt", "Intens overlevelseskamp"],
-    humoer: ["Sjov", "Hygge", "Battle"],
+    humoer: ["Sjov"],
     udstyr: ["Kort"],
     billede: "billeder/uno.png",
     pladsbehov: "Lille",
     alder: "7+ år",
-    note: ""
+    note: "",
   },
   {
     id: "skak",
@@ -36,12 +32,12 @@ const spil = [
     regelniveauer: ["Middel"],
     spilform: "Sæt modstanderens konge skakmat.",
     stemning: ["Intens fordybelse", "Hygge", "Mental duel"],
-    humoer: ["Hygge", "Battle"],
+    humoer: ["Battle"],
     udstyr: [],
     billede: "billeder/skak.png",
     pladsbehov: "Mellem",
     alder: "Fra ca. 5–7 år (afhænger af udgaven)",
-    note: "Spilletiden afhænger blandt andet af den aftalte tidskontrol."
+    note: "Spilletiden afhænger blandt andet af den aftalte tidskontrol.",
   },
   {
     id: "ludo",
@@ -55,12 +51,12 @@ const spil = [
     regelniveauer: ["Let"],
     spilform: "Nå ind i midten med alle dine brikker som den første.",
     stemning: [],
-    humoer: [],
+    humoer: ["Hygge"],
     udstyr: ["Terning"],
     billede: "billeder/ludo.png",
     pladsbehov: "Mellem",
     alder: "Fra ca. 5–6 år (afhænger af udgaven)",
-    note: ""
+    note: "",
   },
   {
     id: "trivial-pursuit",
@@ -72,18 +68,19 @@ const spil = [
     minTid: 45,
     maxTid: 90,
     regelniveauer: ["Middel", "Svær"],
-    spilform: "Saml alle ostestykkerne, og nå ind til midten ved at svare rigtigt på spørgsmål.",
+    spilform:
+      "Saml alle ostestykkerne, og nå ind til midten ved at svare rigtigt på spørgsmål.",
     stemning: ["Hygge", "Koncentration", "Konkurrence"],
-    humoer: ["Hygge", "Battle"],
+    humoer: ["Svær"],
     udstyr: ["Bræt", "Terning", "Kort", "Ostestykker"],
-    billede: "billeder/Trivial-Pursuit.png",
+    billede: "billeder/trivial-pursuit.png",
     pladsbehov: "Stor",
     alder: "Fra 15–16 år (afhænger af udgaven)",
-    note: ""
+    note: "",
   },
   {
     id: "det-daarlige-selskab",
-    navn: "Det Dårlige Selskab",
+    navn: "Det dårlige selskab",
     forkortelse: "DDS",
     kategorier: ["Ordkort"],
     antalSpillere: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
@@ -91,14 +88,15 @@ const spil = [
     minTid: 30,
     maxTid: 60,
     regelniveauer: ["Let"],
-    spilform: "Udfyld de manglende ord, og sammensæt den sjoveste sætning for at vinde kort.",
+    spilform:
+      "Udfyld de manglende ord, og sammensæt den sjoveste sætning for at vinde kort.",
     stemning: ["Sjov", "Fjollet", "Hygge"],
-    humoer: ["Sjov", "Hygge"],
+    humoer: ["Sjov"],
     udstyr: ["Kort", "Svarkort"],
-    billede: "billeder/Det-Daarlige-Selskab.png",
+    billede: "billeder/det-daarlige-selskab.png",
     pladsbehov: "Lille",
     alder: "16+ år",
-    note: ""
+    note: "",
   },
   {
     id: "hitster",
@@ -110,14 +108,15 @@ const spil = [
     minTid: 30,
     maxTid: 60,
     regelniveauer: ["Middel"],
-    spilform: "Scan kortenes QR-koder med telefonen, og gæt årstallene på sangene.",
+    spilform:
+      "Scan kortenes QR-koder med telefonen, og gæt årstallene på sangene.",
     stemning: ["Hyggelig", "Festlig"],
-    humoer: ["Sjov", "Hygge"],
+    humoer: ["Sjov"],
     udstyr: ["Telefon", "Kort"],
-    billede: "billeder/Hitster.png",
+    billede: "billeder/hitster.png",
     pladsbehov: "Lille",
     alder: "Fra 15–16 år (afhænger af udgaven)",
-    note: ""
+    note: "",
   },
   {
     id: "hvem-er-jeg",
@@ -131,33 +130,41 @@ const spil = [
     regelniveauer: ["Let"],
     spilform: "Stil ja/nej-spørgsmål, og gæt personen på din seddel.",
     stemning: ["Humoristisk", "Afslappet", "Social"],
-    humoer: ["Sjov", "Hygge"],
+    humoer: ["Hygge"],
     udstyr: ["Post-its eller papirlapper"],
-    billede: "billeder/Hvem-er-jeg.png",
+    billede: "billeder/hvem-er-jeg.png",
     pladsbehov: "Lille",
     alder: "Ingen fast aldersanbefaling",
-    note: "Data beskriver legen med sedler. Hvis I vælger æsken på jeres billede, skal data tilpasses den udgave."
+    note: "Data beskriver legen med sedler. Hvis I vælger æsken på vores billede, skal data tilpasses den udgave.",
   },
   {
     id: "monopoly",
     navn: "Monopoly",
     forkortelse: "M",
     kategorier: ["Strategispil", "Klassikere"],
-    // Kortlægningen siger 2–6 ELLER 2–8. Indtil udgaven er afklaret,
-    // medtager filteret kun det fælles interval 2–6.
     antalSpillere: [2, 3, 4, 5, 6],
     spillerTekst: "2–6 spillere (nogle udgaver: 8)",
     minTid: 60,
     maxTid: 180,
     regelniveauer: ["Middel"],
-    spilform: "Køb ejendomme, opkræv husleje, og få modstanderne til at gå fallit.",
+    spilform:
+      "Køb ejendomme, opkræv husleje, og få modstanderne til at gå fallit.",
     stemning: ["Konkurrencepræget", "Intens", "Social"],
-    humoer: ["Battle"],
-    udstyr: ["Brikker", "Terning", "Spillepenge", "Ejendomskort", "Chancekort", "Fællesskabskort", "Huse", "Hoteller"],
+    humoer: ["Svær"],
+    udstyr: [
+      "Brikker",
+      "Terning",
+      "Spillepenge",
+      "Ejendomskort",
+      "Chancekort",
+      "Fællesskabskort",
+      "Huse",
+      "Hoteller",
+    ],
     billede: "billeder/monopoly.png",
     pladsbehov: "Mellem",
     alder: "8+ år",
-    note: "Tjek jeres udgave. Filteret bruger 2–6 spillere, indtil det er afklaret, om jeres æske tillader 8."
+    note: "Tjek vores udgave. Filteret bruger 2–6 spillere, indtil det er afklaret, om vores æske tillader 8.",
   },
   {
     id: "cluedo",
@@ -171,16 +178,24 @@ const spil = [
     regelniveauer: ["Middel", "Svær"],
     spilform: "Brug spor til at finde morderen, mordvåbnet og gerningsstedet.",
     stemning: ["Spændingsfuld", "Koncentreret", "Konkurrencepræget"],
-    humoer: ["Battle"],
-    udstyr: ["Personbrikker", "Våbenbrikker", "Kort", "Løsningskuvert", "Detektivark", "Terning(er)", "Blyanter"],
+    humoer: ["Svær"],
+    udstyr: [
+      "Personbrikker",
+      "Våbenbrikker",
+      "Kort",
+      "Løsningskuvert",
+      "Detektivark",
+      "Terning(er)",
+      "Blyanter",
+    ],
     billede: "billeder/cluedo.png",
     pladsbehov: "Stor",
     alder: "8+ år",
-    note: ""
+    note: "",
   },
   {
     id: "hint",
-    navn: "Hint",
+    navn: "HINT",
     forkortelse: "HINT",
     kategorier: ["Gættespil", "Selskabsspil"],
     antalSpillere: [4, 5, 6, 7, 8, 9, 10],
@@ -188,38 +203,39 @@ const spil = [
     minTid: 45,
     maxTid: 60,
     regelniveauer: ["Let"],
-    spilform: "Et holdspil, der udfordrer jeres kreativitet og hurtige tænkning, mens I undgår at sige det forbudte ord.",
+    spilform:
+      "Et holdspil, der udfordrer vores kreativitet og hurtige tænkning, mens I undgår at sige det forbudte ord.",
     stemning: ["Konkurrencepræget", "Social", "Hyggeligt"],
-    humoer: ["Sjov", "Hygge", "Battle"],
+    humoer: ["Battle"],
     udstyr: ["Kort"],
-    billede: "billeder/Hint.png",
+    billede: "billeder/hint.png",
     pladsbehov: "Stor",
     alder: "15+ år",
-    note: ""
+    note: "",
   },
   {
     id: "partners",
     navn: "Partners",
     forkortelse: "P",
     kategorier: ["Selskabsspil", "Kapløbsspil"],
-    // Præcis 2 ELLER 4 ifølge jeres kortlægning. Aldrig 3.
     antalSpillere: [2, 4],
     spillerTekst: "2 eller 4 spillere",
     minTid: 60,
     maxTid: 60,
     regelniveauer: ["Let"],
-    spilform: "Byt kort, læg en strategi sammen, og forsøg at overliste modstanderne med smarte træk.",
+    spilform:
+      "Byt kort, læg en strategi sammen, og forsøg at overliste modstanderne med smarte træk.",
     stemning: ["Konkurrence", "Venskabelig", "Social"],
-    humoer: ["Hygge", "Battle"],
+    humoer: ["Battle"],
     udstyr: ["Bord"],
-    billede: "billeder/Partners.png",
+    billede: "billeder/partners.png",
     pladsbehov: "Lille",
     alder: "8+ år",
-    note: "Kortlægningen angiver 2 eller 4 spillere. Bekræft, at det passer til jeres konkrete udgave."
+    note: "Kortlægningen angiver 2 eller 4 spillere. Bekræft, at det passer til vores konkrete udgave.",
   },
   {
     id: "flip-seven",
-    navn: "Flip seven",
+    navn: "Flip 7",
     forkortelse: "7",
     kategorier: ["Kortspil"],
     antalSpillere: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
@@ -227,13 +243,14 @@ const spil = [
     minTid: 20,
     maxTid: 60,
     regelniveauer: ["Let", "Middel"],
-    spilform: "Flip kort med omtanke uden at få det samme tal to gange. Specialkort giver ekstra point eller drilske frysninger.",
+    spilform:
+      "Flip kort med omtanke uden at få det samme tal to gange. Specialkort giver ekstra point eller drilske frysninger.",
     stemning: ["Hyggeligt", "Sjovt med nye mennesker"],
-    humoer: ["Sjov", "Hygge"],
+    humoer: ["Hygge"],
     udstyr: [],
-    billede: "billeder/Flip-7.png",
+    billede: "billeder/flip-seven.png",
     pladsbehov: "Lille",
     alder: "8+ år",
-    note: ""
-  }
+    note: "",
+  },
 ];
