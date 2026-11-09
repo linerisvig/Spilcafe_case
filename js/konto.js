@@ -111,7 +111,7 @@ document.querySelectorAll(".guest-button").forEach((knap) => {
   });
 });
 
-// Dette er et lokalt øvelseslogin. Formularen kontrollerer e-mail og adgangskodens
+// Et lokalt øvelseslogin. Formularen kontrollerer e-mail og adgangskodens
 // længde. Kun navn og e-mail gemmes; adgangskoden bruges ikke til en rigtig konto.
 document
   .getElementById("login-form")
