@@ -1,0 +1,126 @@
+
+
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alle spil</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+
+
+<body>
+
+      <div class="underside">
+
+     <a href="index.html">← Tilbage</a>
+
+     <h1>Find jeres spil.</h1>
+     <p>12 spil at vælge imellem</p>
+    
+     <div class="filter-boks">
+
+
+
+
+
+    <h3>Vælg kategori</h3>
+
+       <label>
+        <input type="radio" name="kategori" value="" checked
+        onchange="opdaterSpil()"> Alle
+       </label>
+
+      <label>
+         <input type="radio" name="kategori" value="Kortspil"
+         onchange="opdaterSpil()"> Kortspil
+      </label>
+
+     <label>
+        <input type="radio" name="kategori" value="Strategispil"
+        onchange="opdaterSpil()"> Strategispil
+     </label>
+
+      <label>
+        <input type="radio" name="kategori" value="Gættespil"
+        onchange="opdaterSpil()"> Gættespil
+      </label>
+
+      <label>
+        <input type="radio" name="kategori" value="Selskabsspil"
+        onchange="opdaterSpil()"> Selskabsspil
+      </label>
+
+      <label>
+       <input type="radio" name="kategori" value="Kapløbsspil"
+       onchange="opdaterSpil()"> Kapløbsspil
+    </label>
+
+
+
+
+
+
+    
+    <h3>Spilletid</h3>
+
+     <input type="range" id="tid" min="15" max="180"
+     value="180" step="15" oninput="opdaterSpil()">
+
+         <p>Højst <span id="tidtekst">180</span> minutter</p>
+
+
+
+
+     <h3>Sortér efter</h3>
+
+      <select id="sortering" onchange="opdaterSpil()">
+      <option value="titel">Alfabetisk</option>
+      <option value="tid">Korteste spilletid</option>
+      <option value="flest-spillere">Flest spillere</option>
+
+
+
+
+    </select>
+
+  
+
+
+<div class="soege-boks">
+
+  <h3>Søg efter spil</h3>
+
+  <div class="search-container">
+    <input type="text" id="soeg" placeholder="...">
+    <button onclick="opdaterSpil()">
+      <i class="fa fa-search"></i>
+    </button>
+  </div>
+
+</div>
+
+</div> 
+
+
+   <div id="resultater"></div>
+
+   </div> 
+
+   <script src="../js/spil.js"></script>
+   <script src="../js/filter.js"></script>
+
+     </body>
+       </html>
+
+
+
+
+  <script src="../js/spil.js"></script>
+  <script src="../js/filter.js"></script>
+
+</body>
+</html>
