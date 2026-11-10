@@ -1,35 +1,39 @@
- 
+
 <!DOCTYPE html>
 <html lang="da">
 
+
+
 <head>
   <meta charset="UTF-8">
-     <title>Prøv lykken</title>
-        <link rel="stylesheet" href="../css/style.css">
+
+  <title>Prøv lykken</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
+
+
 
 
 
 <body>
 
-     <div class="lykke-side">
+  <div class="lykke-side">
 
-      <a href="index.html">← Tilbage</a>
+    <a href="index.html">Tilbage</a>
 
-    <div class="hjul-ramme">
-      <div class="pil">▼</div>
-      <img id="hjul" src="../billeder/lykkehjul.png" alt="Lykkehjul">
-    </div>
+    <input type="checkbox" id="start-hjul">
 
-       <button id="drej-knap" onclick="drejHjul()">
-        Drej hjulet
-     </button>
+        <div class="hjul-ramme">
+            <div class="pil">▼</div>
+            <img src="../billeder/lykkehjul.png" alt="Lykkehjul">
+        </div>
 
-    <h2 id="resultat"></h2>
+    <label for="start-hjul" class="drej-knap">
+      Drej hjulet
+    </label>
 
   </div>
 
-  <script src="../js/lykkehjul.js"></script>
-
+  
 </body>
 </html>

@@ -237,8 +237,8 @@ input[type="range"] { accent-color: #3b5a60;
 
       .drej-knap {
   display: inline-block;
-  background-color: #b85454;
-  color: white;
+  background-color: #54a2b8;
+  color: rgb(17, 16, 16);
   padding: 12px 25px;
   cursor: pointer;
   font-family: 'Nobile', sans-serif;}
